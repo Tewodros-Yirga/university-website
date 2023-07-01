@@ -10,6 +10,105 @@
   <link rel="stylesheet" href="../CSS/style.css" />
   <link rel="stylesheet" href="../CSS/aboutus.css" />
 </head>
+<?php
+// if (isset($_POST["loginbtn"])) {
+//   $email = $_POST["ema"];
+//   $password = $_POST["pass"];
+//   $conn = mysqli_connect("localhost:3306", "root", "Hummingbird21", "dream");
+//   $sql = "SELECT * FROM users WHERE email='$email'";
+//   $result = mysqli_query($conn, $sql);
+//   if (mysqli_num_rows($result) == 0) {
+//     die("Email not found.");
+//   }
+
+//   $user = mysqli_fetch_object($result);
+//   $pss = password_hash($user->password, PASSWORD_DEFAULT);
+//   if ($password == $pss) {
+//     if ($user->email_verified_at == null) {
+//       die("please verify your email <a href='email-verification.php?email=" . $email . "'> from here</a>");
+//     }
+
+//     header('Location:homepage.html');
+//   } else {
+//     die("password not correct");
+//   }
+//   exit();
+// }
+if (isset($_POST["loginbtn"])) {
+  $email = $_POST["ema"];
+  $password = $_POST["pass"];
+  $conn = mysqli_connect("localhost:3306", "root", "Hummingbird21", "dream");
+  $sql = "SELECT * FROM users WHERE email = '$email'";
+  $result = mysqli_query($conn, $sql);
+  $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+  if ($user) {
+    if (password_verify($password, $user["password"])) {
+      header("Location: homepage.html");
+      die();
+    } else {
+      echo "<div class='alert alert-danger'>Password does not match</div>";
+    }
+  } else {
+    echo "<div class='alert alert-danger'>Email does not match</div>";
+  }
+}
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+if (isset($_POST["regbtn"])) {
+  $name = $_POST["userName"];
+  $email = $_POST["email"];
+  $password = $_POST["password"];
+
+  require 'PHPMailer.php';
+  require 'Exception.php';
+  require 'SMTP.php';
+
+  // Create a new PHPMailer instance
+  $mail = new PHPMailer();
+  $mail->isSMTP();
+  $mail->Host = 'smtp.gmail.com';
+  $mail->Port = 587;
+  $mail->SMTPSecure = 'TLS';
+  $mail->SMTPAuth = true;
+  $mail->Username = 'dreamuniversity00@gmail.com';
+  $mail->Password = 'gllcbuhoqxjdsead';
+  $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+
+  // Sender and recipient
+  $mail->setFrom('dreamuniversity00@gmail.com');
+  $mail->addAddress($email);
+
+  // Email content
+  $mail->isHTML(true);
+  $verification_code = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
+  $mail->Subject = 'Email Verification';
+  $mail->Body = '<p>Your verification code is :<b style="font-size:24px;">' . $verification_code . ' </b></P>';
+  // Send the email
+  $mail->SMTPOptions = array(
+    'ssl' => array(
+      'verify_peer' => false,
+      'verify_peer_name' => false,
+      'allow_self_signed' => true
+    )
+  );
+  if ($mail->send()) {
+
+    $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
+    // connect with database
+    $con = mysqli_connect("localhost:3306", "root", "Hummingbird21", "dream");
+    //insert in users table
+    $sql = "INSERT INTO users (name, email, password,code) VALUES ('" . $name . "','" . $email . "','" . $encrypted_password . "','" . $verification_code . "')";
+    mysqli_query($con, $sql);
+    header("Location:email-verification.php?email=" . $email);
+  } else {
+    echo 'Failed to send email. Error: ' . $mail->ErrorInfo;
+  }
+  exit();
+}
+?>
 
 <body>
   <div class="head-nav">
@@ -150,15 +249,7 @@
         </div>
       </div>
     </div>
-    <div class="scholar">
-      <!-- here goes
-        theat there asdklfjasjdfioasdj
-      asdfjasiodjfoiasdjfa
-    asdfjioasdjfioasdjfs
-  asdfjasodjfaiosdjfas
-sdjfaiosdjfioasdjf
-asdjfioasdjfioajsd -->
-    </div>
+
   </section>
   <footer>
     <div class="contain-foot">
