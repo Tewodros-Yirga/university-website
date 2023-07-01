@@ -1,0 +1,56 @@
+/* Styling for the Natural Science section */
+#social-science {
+  padding: 40px;
+  background-color: #f8f8f8;
+}
+
+#social-science h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+.fir {
+  margin-top: 132px;
+}
+
+.department-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  list-style: none;
+}
+
+.department {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.department img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.department h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.department p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+footer {
+  background: hsl(0, 1%, 62%);
+  border-radius: 5px;
+}
+.copy {
+  display: flex;
+  justify-content: center;
+}

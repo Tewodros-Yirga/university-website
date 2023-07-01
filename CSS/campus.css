@@ -1,0 +1,30 @@
+.imag {
+  align-items: center;
+}
+.imag h2 {
+  width: 555px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 27px;
+  border: 1px solid black;
+  margin: 9px;
+  text-align: center;
+  justify-content: center;
+  margin-left: 398px;
+}
+.imag img {
+  height: 434px;
+  margin: 5px;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.imag img:hover {
+  transform: scale(1.1);
+}
+footer {
+  background: hsl(0, 1%, 62%);
+  border-radius: 5px;
+}
+.copy {
+  display: flex;
+  justify-content: center;
+}

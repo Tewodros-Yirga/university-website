@@ -1,0 +1,137 @@
+/* Footer section */
+footer {
+  background-color: hwb(0 37% 61% / 0.911);
+  padding: 20px;
+  margin-top: 133px;
+  height: 551px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.footer-content h3 {
+  color: rgba(255, 255, 255, 0.89);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-content p {
+  color: white;
+  margin-bottom: 5px;
+}
+
+.quick-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quick-links li {
+  margin-bottom: 5px;
+}
+
+.quick-links a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.quick-links a:hover {
+  color: #000;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  text-align: center;
+  color: #999;
+}
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form textarea::placeholder {
+  padding-top: 4px;
+}
+form input,
+textarea {
+  font-size: 18px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  outline: none;
+  margin: 5px;
+  border-radius: 10px;
+  text-indent: 12px;
+}
+form input {
+  height: 40px;
+  border: none;
+}
+.button {
+  border-radius: 9px;
+  padding: 8px 38px;
+  font-size: 19px;
+}
+.faq a {
+  color: white;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.faq p:hover {
+  text-decoration: underline;
+  color: black;
+}
+.icons a {
+  text-decoration: none;
+  color: black;
+}
+.icons .ico {
+  font-size: 35px;
+  cursor: pointer;
+  margin: 2px;
+}
+.facebook,
+.twitter,
+.call,
+.youtube,
+.ln,
+.instagram,
+.tiktok {
+  transition: 0.5s;
+  margin: 0px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.facebook:hover {
+  background-color: #0c1fc5;
+  border-radius: 10px;
+}
+.twitter:hover {
+  background-color: #1da1f2;
+  border-radius: 10px;
+}
+.call:hover {
+  background-color: #4dff03;
+  border-radius: 10px;
+}
+.youtube:hover {
+  background-color: #f10909;
+  border-radius: 10px;
+}
+.ln:hover {
+  background-color: #0077b5;
+  border-radius: 10px;
+}
+.tiktok:hover {
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+}
+.instagram:hover {
+  background: linear-gradient(31deg, #fff, #cc0808, #db15c1);
+  border-radius: 10px;
+}

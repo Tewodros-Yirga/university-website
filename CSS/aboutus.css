@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(../IMAGES/background.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.mission,
+.vision {
+  margin: 15px;
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  border: 2px solid black;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.mission p,
+.vision p {
+  font-size: 19px;
+  padding: 8px;
+  margin: 11px;
+}
+.para,
+.para1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mission:hover {
+  border-color: red;
+  transform: translateY(-15px);
+}
+.vision:hover {
+  border-color: red;
+  transform: translateY(15px);
+}

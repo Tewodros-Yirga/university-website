@@ -1,0 +1,53 @@
+.acc {
+  margin-top: 132px;
+}
+#academic-support {
+  margin-top: 40px;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.support-item {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.support-item h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.support-item p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.support-item a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.support-item a:hover {
+  background-color: #0056b3;
+}
+
+footer {
+  background: hsl(0, 1%, 62%);
+  border-radius: 5px;
+}
+.copy {
+  display: flex;
+  justify-content: center;
+}
